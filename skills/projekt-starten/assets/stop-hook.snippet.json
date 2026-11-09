@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "(<SCHNELLER-CHECK-BEFEHL>) 1>&2 || exit 2"
+          }
+        ]
+      }
+    ]
+  }
+}
