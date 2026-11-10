@@ -1,54 +1,37 @@
 # Ist-Zustand
 
-Ergebnis der Analyse. Alles hier ist aus dem Code abgeleitet und mit Fundstellen belegt. Nichts ist Soll. Was unklar ist, steht bei den offenen Fragen.
-
-Analysiert am <Datum> von <Agent>. Ziel der Analyse <Ziel>. Geführt als Stufe <Stufe>. Läuft produktiv mit echten Nutzern <ja oder nein>.
+Aus dem Code abgeleitet, mit Fundstellen. Nichts hier ist Soll. Ziel der Analyse <…>, produktiv mit echten Nutzern <ja oder nein>.
 
 ## Stack und Befehle
 | Bereich | Stand | Fundstelle |
 |---|---|---|
-| Sprache und Framework | | |
-| Paketverwaltung | | |
-| Starten | `<befehl>` | |
-| Alle Tests | `<befehl>` | |
-| Production-Build oder Startprüfung | `<befehl>` | |
-
-Befehle, die nicht funktionierten oder nicht zu finden waren
-
-## Struktur
-<Wichtigste Ordner, Einstiegspunkte, Aufteilung.>
+| Sprache, Framework, Paketverwaltung | | |
+| Starten | `<…>` | |
+| Tests | `<…>` | |
+| Build oder Startprüfung | `<…>` | |
 
 ## Datenmodell
-<Tabellen oder Modelle, Felder, Beziehungen, Migrationen.>
+<Tabellen oder Modelle, Beziehungen, Migrationen.>
 
-## Rollen und Rechte im Ist-Zustand
+## Rechte
 | Datenart oder Funktion | Wer darf laut Code | Wo erzwungen | Fundstelle |
 |---|---|---|---|
 | | | Datenebene, Server oder nur Oberfläche | |
 
-Abweichungen zwischen Annahme und Code
+Abweichung zu Marcs Annahme: <…>
 
-## Auffälligkeiten im Verhalten
-<Fehler und Unstimmigkeiten, die beim Ausprobieren oder Lesen aufgefallen sind und keine Sicherheitsfunde sind, jeweils mit Fundstelle und Weg zum Nachstellen.>
+## Funde
+| Fund | Art | Schweregrad | Fundstelle |
+|---|---|---|---|
+| | Sicherheit, Verhalten, Abhängigkeit oder Tests | Blocker, Wichtig oder Hinweis | |
 
-## Abhängigkeiten
-<Pakete, Lockfile, auffällige oder veraltete Pakete, Lizenzen.>
-
-## Testlage
-<Anzahl Tests, laufen sie, was ist abgedeckt, was nicht.>
-
-## Externe Dienste und Kosten
-<Dienste, Schlüsselnamen (keine Werte), Limits.>
-
-## Sicherheits-Schnellcheck
-| Fund | Schweregrad | Fundstelle |
-|---|---|---|
-| | Blocker, Wichtig oder Hinweis | |
+## Tests
+<Anzahl, laufen sie, was ist abgedeckt.>
 
 ## Erkannte Features
 | Kürzel | Feature | Fundstellen |
 |---|---|---|
 | | | |
 
-## Offene Fragen
-<Was der Code nicht beantwortet und Marc klären muss.>
+## Offene Fragen an Marc
+<…>
