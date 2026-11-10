@@ -2,7 +2,7 @@
 
 Marcs Standard für Coding-Projekte mit Coding Agents, in der schlanken Fassung. Drei Dinge zählen: Der Projektzustand steht in Dokumenten, «fertig» heisst nachweislich geprüft, und Marc wird selten gefragt und knapp informiert.
 
-Die ausführliche erste Fassung (rund 1'300 Zeilen) bleibt unter dem Git-Tag `voll-v1` abrufbar.
+Die ausführliche erste Fassung (rund 1'300 Zeilen) bleibt im Zweig `archiv/voll-v1` abrufbar.
 
 ## Inhalt
 
