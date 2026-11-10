@@ -4,7 +4,7 @@ Reihenfolge einhalten. Jeden Baustein an einem echten, kleinen Feature ausprobie
 
 Inhalt: 01 Projektgedächtnis, 02 Spezifikation, 03 Architektur, 04 Plan, 05 Build, 06 Unabhängige Prüfung, 07 Leitplanken, 08 Pflege, Querschnitt Rechte
 
-Git, CI und Deployment stehen in `betrieb.md`, technisch erzwungene Leitplanken, Lieferkette und Zugänge in `leitplanken-technik.md`. Welcher Umfang je Projektstufe gilt (Prototyp, Standard, Produktiv), steht in `SKILL.md`. Im Prototyp genügen die Kurzformen, die Leitplanken gelten in jeder Stufe.
+Git, CI und Deployment stehen in `betrieb.md`, technisch erzwungene Leitplanken, Lieferkette und Zugänge in `leitplanken-technik.md`, die Ebenen des Kontexts und die Erkenntnisse der ETH-Studie zu Kontextdateien in `kontext.md`. Welcher Umfang je Projektstufe gilt (Prototyp, Standard, Produktiv), steht in `SKILL.md`. Im Prototyp genügen die Kurzformen, die Leitplanken gelten in jeder Stufe.
 
 ---
 
@@ -20,12 +20,15 @@ Vorhanden sein muss
 - Konventionen (Arbeitssprache, Benennungen, was nie passieren darf)
 
 Umsetzung in diesem Standard
-- `CLAUDE.md` im Projekt, unter 100 bis 200 Zeilen. Vorlage im Skill `projekt-starten`.
+- `CLAUDE.md` im Projekt, als Richtwert eine Seite und höchstens 200 Zeilen. Vorlage im Skill `projekt-starten`. Wichtiger als die Länge ist der Inhalt. Jede Zeile wird in jeder Sitzung geladen und befolgt und kostet damit bei jeder Aufgabe Schritte. Hinein gehört nur, was bei jeder Aufgabe gilt und nirgends sonst steht. Ein Verzeichnisbaum, Wiederholungen aus dem README und allgemeine Aufforderungen gehören nicht hinein (Begründung und Zahlen in `kontext.md`).
+- Die CLAUDE.md wird von Hand geschrieben oder aus Marcs Antworten gefüllt und nicht mit `/init` oder ähnlichen Befehlen automatisch aus dem Code erzeugt. In der ETH-Studie verbesserten erzeugte Kontextdateien die Erfolgsquote nicht und verteuerten jede Aufgabe um rund 20 Prozent.
 - `docs/features.md` mit einer Zeile pro Feature und einem Status aus dieser Liste: Entwurf, Spec freigegeben, Architektur freigegeben, Geplant, In Build, In Prüfung, Fertig, dazu «Bestand (ungeprüft)» für übernommene Features. Den Status ändert nur der Schritt, der ihn verantwortet.
-- Mehrere Tools im Einsatz (etwa Claude Code und Codex)? Eine Quelle der Wahrheit. Die Anweisungsdatei des anderen Tools verweist auf dieselbe Datei, damit keine zwei Gedächtnisse auseinanderlaufen. AGENTS.md ist dafür als gemeinsame Quelle verbreitet, und die CLAUDE.md verweist darauf oder ist ein Symlink darauf. Die Datei wird von Hand geschrieben, kurz, konkret und im Imperativ («Nutze pnpm, nicht npm»). Automatisch erzeugte Anweisungsdateien sind nach dem Stand der Quellen nicht verlässlich nützlich.
+- Mehrere Tools im Einsatz (etwa Claude Code und Codex)? Eine Quelle der Wahrheit. Die Anweisungsdatei des anderen Tools verweist auf dieselbe Datei, damit keine zwei Gedächtnisse auseinanderlaufen. AGENTS.md ist dafür als gemeinsame Quelle verbreitet. Claude Code liest sie nur, wenn es keine CLAUDE.md gibt. Gibt es beide, importiert die CLAUDE.md sie mit der Zeile `@AGENTS.md`. Die Datei wird von Hand geschrieben, konkret und im Imperativ («Nutze pnpm, nicht npm»).
 - Der Agent lädt automatisch CLAUDE.md und `docs/features.md`. Alles andere (Specs, Pläne, Berichte) liest er bei Bedarf selbst nach.
 - Kontext ist begrenzt. Mit `/context` prüft man, was gerade geladen ist. Dateien werden gezielt referenziert (`@datei`), nicht ganze Ordner. Bei langen oder überladenen Sitzungen beginnt man lieber eine neue und steigt über die Projektdokumente ein.
-- Regeln nach Bereich statt alles in der CLAUDE.md. Coding-Standards, Namenskonventionen und Schreibstil können als einzelne Regeldateien abgelegt werden (in Claude Code unter `.claude/rules/`, auf bestimmte Ordner begrenzbar), sodass sie nur geladen werden, wenn der Agent in dem Bereich arbeitet. So bleibt die CLAUDE.md kurz. Gilt nur, soweit das Tool es unterstützt.
+- Regeln nach Bereich statt alles in der CLAUDE.md. Konventionen für Specs, Pläne, Berichte und Tests liegen als Regeldateien mit Pfadangabe unter `.claude/rules/` und werden nur geladen, wenn der Agent eine passende Datei liest oder ändert. Sie gelten damit auch, wenn kein Skill läuft, etwa bei «ändere Kriterium 3». Der Skill `projekt-starten` liefert drei solche Regeln mit. Regeln ohne Pfad werden immer geladen und bleiben die Ausnahme. Syntax und Ebenen stehen in `kontext.md`.
+- Dateien lesen statt raten. Der Agent liest eine Datei neu, bevor er sie ändert oder sich auf ihren Inhalt stützt, besonders nach einer Verdichtung des Verlaufs. Was er nicht nachlesen kann, erfragt er.
+- Bei Schnittstellen zu Frameworks und externen Diensten holt der Agent die aktuelle Dokumentation und verlässt sich nicht auf sein Trainingswissen. MCP-Server dafür und für Datenbank oder Design sind Entscheidungen und folgen den Regeln in `kontext.md`.
 
 Falle. Das Gedächtnis wird zum Tagebuch. Nach jeder Sitzung hängt jemand «Heute gemacht: …» an, nach drei Monaten sind es tausende Zeilen, und der Context Rot ist auf Knopfdruck gebaut. Das Gedächtnis beschreibt den Zustand, nicht die Geschichte. Die Feature-Übersicht ist keine Ablage für Bugfixes und Notizen.
 
@@ -122,6 +125,7 @@ Umsetzung in diesem Standard
 - «Alle Tests grün» nie ohne Zahl. Es muss feststehen, wie viele Tests gelaufen sind. Null Tests sind ein Fehler.
 - Teure Läufe nicht reflexhaft. Betroffene Tests laufen laufend, die ganze Suite vor Haltepunkten und vor der Prüfung. «Immer alles» kostet mehr Nutzungslimit, als man denkt.
 - Charakterisierungstests an bestehendem Code sind die Ausnahme von «erst rot», denn Ist-Verhalten ist sofort grün. Der Nachweis, dass sie fehlschlagen können, entsteht über eine kurz geänderte Kopie des Codes. Tests für fehlerhaftes Verhalten tragen die Markierung «bekannter Fehler» und werden nie zum Soll.
+- Tests prüfen das Verhalten aus der Spec und nicht Interna (Variablennamen, Hilfsfunktionen, genauer Wortlaut von Meldungen), ausser die Spec verlangt es wörtlich. Tests, die an der Umsetzung kleben, brechen bei jeder harmlosen Änderung und beweisen nichts über das Verhalten.
 - Helfer-Agenten bekommen nur ihren Ausschnitt (Aufgabe, betroffene Spec-Kriterien, relevante Dateien), nicht das ganze Projekt.
 - Nach zwei erfolglosen Korrekturen derselben Sache beginnt der Agent neu (`/clear`) und schreibt einen besseren Auftrag, der das Gelernte enthält. Eine dritte Korrektur im selben Verlauf verlängert nur einen Verlauf, der zwei gescheiterte Versuche enthält. Mit `/rewind` lassen sich Code und Verlauf auf einen früheren Stand zurücksetzen, sodass mutige Versuche wenig riskieren.
 - Was der Agent ohne Rückfrage darf, steht in den Berechtigungen des Projekts, damit ein langer Build nicht an jeder Kleinigkeit stehen bleibt.
@@ -192,6 +196,7 @@ Vorhanden sein muss
 - Ein Weg, Anforderungen zu ändern, ohne dass die Spec-Flut beginnt (bestehende Spec erweitern, Plan nachziehen)
 - Orientierung. «Wo stehe ich, was ist der nächste Schritt?» nach Pausen und für jeden, der neu ins Projekt kommt. Das beantwortet `docs/features.md` zusammen mit den Plänen.
 - Eine Prüfung des Setups selbst. Zu lange Dokumente, verwaiste Specs, Lücken in der Nachvollziehbarkeit. Verfall passiert leise.
+- Eine Prüfung der Anweisungen. Jede Zeile in CLAUDE.md und Regeln braucht einen Anlass. Was das Verhalten nicht ändert, wird gelöscht, was trotz Wiederholung übergangen wird, wandert in einen Hook. Veraltetes, Doppeltes und Widersprüche werden entfernt (in neueren Versionen von Claude Code hilft `/doctor prompt-audit`).
 - Aufräumen, was sich über Wochen angesammelt hat
 - Ein Weg zum Livegang, der alles einsammelt, was vergessen wurde: offene Einstellungen, fehlende Umgebungsvariablen, fehlgeschlagene Builds
 - Datenschutz, bevor echte Nutzer echte Daten eingeben

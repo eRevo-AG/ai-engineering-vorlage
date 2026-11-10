@@ -23,7 +23,7 @@ Runde 1
 - Stufe: Prototyp, Standard (empfohlen) oder Produktiv. Erkläre jede Option in einem Satz (siehe Stufentabelle im Skill `ai-engineering-standard`).
 - Rollen und Rechte: «Nur ich, kein Login», «Ich und Mitarbeitende mit gleichen Rechten», «Mehrere Rollen mit unterschiedlichen Rechten», «Öffentliche Besucher und angemeldete Mitglieder». Bei mehreren Rollen lässt du Marc die Rollennamen nennen.
 - Stack: Frage nach dem Stack des Projekts, mit den Optionen «Ich nenne ihn selbst», «Du schlägst einen vor, ich gebe frei» und, falls bekannt, einer typischen Wahl. Der Stack ist pro Projekt verschieden und wird nie vorausgesetzt.
-- Werkzeuge: «Nur Claude Code» oder «Mehrere Coding Agents». Bei mehreren liegt die gemeinsame Quelle in AGENTS.md, und die CLAUDE.md verweist darauf.
+- Werkzeuge: «Nur Claude Code» oder «Mehrere Coding Agents». Bei mehreren liegt die gemeinsame Quelle in AGENTS.md, und die CLAUDE.md importiert sie mit der Zeile `@AGENTS.md`.
 
 Runde 2
 - Produkt in freien Worten: für wen, welches Problem, was gehört zum MVP und was ausdrücklich nicht. Fasse es danach selbst in drei Sätze. Marc bestätigt diese Sätze in der Abschlussfreigabe mit, es braucht keine eigene Runde dafür.
@@ -52,7 +52,7 @@ Regeln für Platzhalter und offene Punkte
 
 Dateien
 
-- `CLAUDE.md` nach `assets/projekt-CLAUDE.md`. Stufe, Rollen, Stack, Befehle und Konventionen eintragen. Unter 150 Zeilen bleiben. Bei mehreren Coding Agents ergänze den Satz «Die gemeinsame Quelle liegt in AGENTS.md.» Bei «Nur Claude Code» entfällt er. Trage die Ordnerkonvention für Migrationen (`migrations/`) in die Konventionen ein, wenn der Stack Migrationen kennt.
+- `CLAUDE.md` nach `assets/projekt-CLAUDE.md`. Stufe, Rollen, Stack, Befehle und Konventionen eintragen. Die Datei entsteht aus Marcs Antworten und wird nicht mit `/init` automatisch erzeugt. Sie enthält nur, was bei jeder Aufgabe gilt und nirgends sonst steht. Kein Verzeichnisbaum, keine Beschreibung der Ordner, nichts aus dem README, keine allgemeinen Aufforderungen wie «teste gründlich». Jede Zeile wird in jeder Sitzung befolgt und kostet Schritte (Hintergrund in `kontext.md` des Skills `ai-engineering-standard`). Richtwert ist eine Seite. Bei mehreren Coding Agents steht der gemeinsame Inhalt in `AGENTS.md`, und die CLAUDE.md beginnt mit der Zeile `@AGENTS.md` und enthält sonst nur, was allein für Claude Code gilt. Bei «Nur Claude Code» gibt es keine AGENTS.md. Trage die Ordnerkonvention für Migrationen (`migrations/`) in die Konventionen ein, wenn der Stack Migrationen kennt.
 - `docs/features.md` nach `assets/features.md`. Trage die MVP-Features aus dem Produkttext als Zeilen ein, mit Status «Entwurf» und leerem Kürzel (es entsteht erst mit der Spec). Features ausserhalb des MVP trägst du nicht ein.
 - `docs/architecture.md` nach `assets/architecture.md`, mit Rollen, Anmeldung, Datenschutz-Hinweis aus Runde 2 und der Rechtematrix als Entwurf. Aufgaben, die in den ersten Plan gehören (Stop-Hook aktivieren, Migrations-Hook, Paketprüfung, Migrationen ja oder nein), schreibst du in den Abschnitt «Vorgemerkte Aufgaben für den ersten Plan». Dort findet sie der Plan, und sie stehen nicht nur im Chat.
 - `docs/decisions.md` nach `assets/decisions.md`. Trage die Stack-Entscheidung als E01 ein. Die Prüfung der Stack-Pakete (Existenz, Betreuer, Verbreitung, Lizenz) geschieht vor der ersten Installation. Bis dahin steht in E01 «noch nicht geprüft», und die Prüfung ist eine Aufgabe im ersten Plan.
@@ -63,8 +63,9 @@ Dateien
   - Der Stop-Hook aus `assets/stop-hook.snippet.json` wird erst aktiviert, wenn ein lauffähiger Check existiert. In einem leeren Projekt würde er jedes Beenden blockieren, weil Tests und Code fehlen. Notiere deshalb unter «Vorgemerkte Aufgaben für den ersten Plan» in `docs/architecture.md` die Aufgabe «Stop-Hook aktivieren, sobald die erste Testdatei läuft». Mehrere Befehle stehen in Klammern: `(a && b) 1>&2 || exit 2`.
   - Hooks und Allow-Einträge mit unbekanntem Befehl lässt du weg, du setzt keine Platzhalter ein.
   - Vor dem Einsatz mit `/hooks` kontrollieren.
+- `.claude/rules/` mit den drei Regeln aus `assets/rules/` (`specs.md`, `plaene-und-berichte.md`, `tests.md`). Sie werden nur geladen, wenn der Agent passende Dateien liest oder ändert, und gelten auch dann, wenn kein Skill läuft. Passe in `tests.md` die Pfade an den Stack an und entferne Muster, die im Projekt nichts treffen. Lege keine Regeln ohne Pfad an. Prüfe nach dem Anlegen, dass der Kopf jeder Regel gültiges YAML ist, sonst wird sie immer geladen.
 - `.gitignore`: ergänze `.env`, `.env.*`, `secrets/` und `.claude/settings.local.json`, dazu die üblichen Einträge des Stacks (Caches, virtuelle Umgebungen, Build-Ordner). Bei personenbezogenen Daten (Runde 2) gehören lokale Datendateien wie `*.db` dazu.
-- Bei mehreren Coding Agents zusätzlich `AGENTS.md` als gemeinsame Quelle, auf die CLAUDE.md verweist.
+- Bei mehreren Coding Agents zusätzlich `AGENTS.md` als gemeinsame Quelle, die CLAUDE.md mit `@AGENTS.md` importiert. Claude Code liest eine AGENTS.md sonst nicht, sobald es eine CLAUDE.md gibt.
 
 Bei Stacks ohne Build (zum Beispiel Python) trägst du unter «Production-Build» den Befehl ein, der beweist, dass die App startet, oder lässt die Zeile offen, bis er feststeht.
 

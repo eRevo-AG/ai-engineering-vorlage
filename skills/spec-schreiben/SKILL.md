@@ -41,9 +41,25 @@ Nutze die Vorlage `assets/spec.md` und speichere unter `docs/specs/<feature>.md`
 - Kriterien tragen stabile IDs im Muster `<ABK>-<nr>-AK<nr>` und folgen dem Muster Ausgangslage, Handlung, erwartetes Ergebnis.
 - Keine Technik, kein Code, kein Status, kein Datum. Die Spec beschreibt das Was. Ausnahmen: Bei reinen API-Produkten dürfen Pfad und Methode in den Kriterien stehen, weil sie das Verhalten ausmachen. Bei rückwärts gewonnenen Specs (Skill `projekt-analysieren`) steht in der Kopfzeile der Vermerk «Herkunft: rückwärts gewonnen, ungeprüft».
 - Jedes «Darf» und jedes «Darf nicht» der Rollentabelle bekommt ein eigenes Kriterium mit ID und steht in der Spalte «Kriterium». Rechte und Verbote ohne ID lassen sich weder planen noch prüfen.
+- Sichtbare Texte, die geprüft werden sollen (Fehlermeldungen, Hinweise in der Oberfläche), stehen wörtlich in der Spec. Sonst prüfen Tests das Verhalten und nicht den Wortlaut.
 - Mindestens ein Kriterium beschreibt den Verbotsfall (zum Beispiel «Nutzer B sieht die Daten von Nutzer A nicht»).
 - Bei Erweiterung einer bestehenden Spec bleiben alte IDs unverändert. Neue Kriterien bekommen neue Nummern. Entfallene werden als «entfallen» markiert.
 - Schreibe auf Deutsch nach den Regeln von `no-slop-marc`, falls verfügbar.
+
+Im Projekt liegt eine Regel `.claude/rules/specs.md` mit denselben Konventionen. Sie gilt auch, wenn jemand eine Spec ohne diesen Skill ändert. Weichen Regel und Skill voneinander ab, melde es Marc.
+
+## Fehler und kleine Änderungen
+
+Nicht jede Anfrage braucht ein Interview. Für einen Fehlerbericht oder eine kleine Änderung an einem bestehenden Feature fragst du diese sechs Punkte ab und trägst das Ergebnis in die bestehende Spec ein (neues Kriterium oder neuer Randfall mit neuer ID, bei Fehlern mit Verweis auf die verletzte ID).
+
+1. Beschreibung in ein bis zwei Sätzen
+2. Schritte zum Nachstellen, minimal und wirklich ausgeführt
+3. Erwartetes Verhalten
+4. Tatsächliches Verhalten
+5. Spezifikation, falls sich Verhalten ändert (Eingaben, Grenzen, Ausgaben, Fehlerfälle)
+6. Weitere Angaben (Logs, Screenshots)
+
+Eine genaue Beschreibung der Aufgabe wirkt stärker als jede Kontextdatei. In der ETH-Studie zu Kontextdateien lösten Agenten mit klar strukturierten, genau spezifizierten Beschreibungen deutlich mehr Aufgaben als mit den ursprünglichen.
 
 ## Selbstprüfung vor der Freigabe
 

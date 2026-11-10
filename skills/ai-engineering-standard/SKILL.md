@@ -100,6 +100,10 @@ Jede Anforderung muss sich von der Spezifikation über die Aufgabe im Plan und d
 
 **Kontext sparsam halten.** Den Stand mit `/context` prüfen, wenn Antworten schlechter werden oder eine Sitzung lang läuft. Dateien gezielt referenzieren (`@datei`), statt ganze Ordner zu laden. Ist der Kontext voll, lieber eine neue Sitzung mit frischem Einstieg über die Projektdokumente beginnen, als weiter in einer überladenen zu arbeiten.
 
+**Dateien lesen statt raten.** Eine Datei neu lesen, bevor sie geändert wird oder eine Entscheidung auf ihrem Inhalt beruht, besonders nach einer Verdichtung des Verlaufs. Was sich nicht nachlesen lässt, wird erfragt und nicht angenommen. Bei Schnittstellen zu Frameworks und externen Diensten gilt die aktuelle Dokumentation und nicht das Trainingswissen.
+
+**Fehlerberichte und kleine Änderungen** ohne neue Spec folgen der Struktur Beschreibung, Schritte zum Nachstellen, erwartetes Verhalten, tatsächliches Verhalten, Spezifikation und weitere Angaben (siehe `references/kontext.md`). Eine genaue Aufgabenbeschreibung bringt mehr als jede Kontextdatei.
+
 **Nach zwei erfolglosen Korrekturen** derselben Sache nicht ein drittes Mal im selben Verlauf korrigieren. Neu beginnen (`/clear`) und einen besseren Auftrag schreiben, der das Gelernte enthält. Der alte Verlauf enthält sonst zwei gescheiterte Versuche, die der Agent immer wieder mitliest. Mit `/rewind` lassen sich Code und Verlauf auf einen früheren Stand zurücksetzen.
 
 **Bei einem neuen Projekt ohne diese Struktur** den Skill `projekt-starten` nutzen. Er klärt Stufe, Rechte, Stack und Produkt per Auswahlfragen und legt das Gerüst an. Gebaut wird erst danach.
@@ -112,11 +116,11 @@ Jede Anforderung muss sich von der Spezifikation über die Aufgabe im Plan und d
 
 ## Die Bausteine
 
-Lies vor Beginn des jeweiligen Schritts den passenden Abschnitt in `references/bausteine.md`. Dort steht pro Baustein, was vorhanden sein muss und welche Falle man vermeidet. Git, CI, Deployment und parallele Sitzungen stehen in `references/betrieb.md`. Technisch erzwungene Leitplanken, Lieferkette, fremde Inhalte sowie Zugänge und Kosten stehen in `references/leitplanken-technik.md`. Vorlagen liegen in `assets/` und in den Skills `projekt-starten`, `spec-schreiben`, `architektur-entwerfen`, `projekt-analysieren` und `pruefen`.
+Lies vor Beginn des jeweiligen Schritts den passenden Abschnitt in `references/bausteine.md`. Dort steht pro Baustein, was vorhanden sein muss und welche Falle man vermeidet. Git, CI, Deployment und parallele Sitzungen stehen in `references/betrieb.md`. Technisch erzwungene Leitplanken, Lieferkette, fremde Inhalte sowie Zugänge und Kosten stehen in `references/leitplanken-technik.md`. Welche Information auf welche Ebene gehört (CLAUDE.md, Regeln, Skills, Sub-Agenten, MCP, Dokumente) und was die ETH-Studie zu Kontextdateien zeigt, steht in `references/kontext.md`. Vorlagen liegen in `assets/` und in den Skills `projekt-starten`, `spec-schreiben`, `architektur-entwerfen`, `projekt-analysieren` und `pruefen`.
 
 | Baustein | Kern | Abschnitt |
 |---|---|---|
-| 01 Projektgedächtnis | CLAUDE.md unter 200 Zeilen, Regeln nach Bereich, Feature-Übersicht mit Status | `bausteine.md` Teil 01 |
+| 01 Projektgedächtnis | CLAUDE.md nur mit dem Nötigen und von Hand, Regeln nach Bereich, Feature-Übersicht mit Status | `bausteine.md` Teil 01, `kontext.md` |
 | 02 Spezifikation | Was «fertig» heisst, prüfbar, mit Priorität, Rechtekriterien und Referenzen | Teil 02, Skill `spec-schreiben` |
 | 03 Architektur | Das Wie, Datenmodell mit Rechtematrix, endet mit Frage an Marc | Teil 03, Skill `architektur-entwerfen` |
 | 04 Plan | Häppchen für frischen Kontext, Bezug zu Anforderungen | Teil 04, Vorlage `plan.md` |
@@ -142,6 +146,7 @@ Lies vor Beginn des jeweiligen Schritts den passenden Abschnitt in `references/b
 - Commits, Pushes und Deployments nur auf Marcs Wunsch oder nach seiner Freigabe, nie auf den Hauptzweig und nie mit Force.
 - Was nur Marc tun kann (Dashboard-Einstellungen, API-Keys, Domains), steht sichtbar in Architektur und Plan. Der Agent baut oder hakt es nie selbst ab.
 - Das Gedächtnis beschreibt den Zustand, nicht die Geschichte. Kein Tagebuch.
+- Die CLAUDE.md enthält nur, was bei jeder Aufgabe gilt und nirgends sonst steht. Sie wird nicht automatisch aus dem Code erzeugt und enthält keinen Verzeichnisbaum. Jede Zeile wird befolgt und kostet bei jeder Aufgabe.
 
 ## Sprache und Format
 

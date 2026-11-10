@@ -10,7 +10,7 @@ Grundgedanke: Der Zustand eines Projekts lebt in Dokumenten und nicht im Chatver
 |---|---|
 | `skills/` | Die sechs Skills im Quellformat. Dies ist die einzige Quelle der Wahrheit. |
 | `dist/` | Die fertig gepackten `.skill`-Dateien zum Hochladen. |
-| `projekt-vorlage/` | Fertiges Projektgerüst zum Kopieren (CLAUDE.md, docs-Ordner, Schutzregeln). |
+| `projekt-vorlage/` | Fertiges Projektgerüst zum Kopieren (CLAUDE.md, docs-Ordner, Schutzregeln, Regeln nach Bereich unter `.claude/rules/`). |
 | `tools/pack.sh` | Packt die Skills nach `dist/`. |
 
 ## Die sechs Skills
@@ -35,7 +35,7 @@ Die Skills hängen voneinander ab (Vorlagen und Ablauf) und werden deshalb zusam
 
 Am einfachsten über den Skill `projekt-starten`. Er fragt Stufe, Rollen, Anmeldung, Stack und Werkzeuge ab und legt das Gerüst an.
 
-Alternativ den Inhalt von `projekt-vorlage/` in das neue Repository kopieren und die Platzhalter in `<…>` füllen. Die Datei `.claude/settings.json` enthält nur Schutzregeln. Die Hooks unter `.claude/bausteine/` kommen erst dazu, wenn es Migrationen beziehungsweise einen lauffähigen Check gibt. Vorher mit `/hooks` kontrollieren und in einem Testprojekt ausprobieren.
+Alternativ den Inhalt von `projekt-vorlage/` in das neue Repository kopieren und die Platzhalter in `<…>` füllen. Die CLAUDE.md wird von Hand gefüllt und nicht mit `/init` erzeugt. Sie enthält nur, was bei jeder Aufgabe gilt und nirgends sonst steht. Die drei Regeln unter `.claude/rules/` werden nur geladen, wenn der Agent Specs, Pläne, Berichte oder Tests bearbeitet. In `tests.md` die Pfade an den Stack anpassen. Die Datei `.claude/settings.json` enthält nur Schutzregeln. Die Hooks unter `.claude/bausteine/` kommen erst dazu, wenn es Migrationen beziehungsweise einen lauffähigen Check gibt. Vorher mit `/hooks` kontrollieren und in einem Testprojekt ausprobieren.
 
 ## Ablauf pro Feature
 
@@ -55,10 +55,12 @@ Alternativ den Inhalt von `projekt-vorlage/` in das neue Repository kopieren und
 
 ## Pflege
 
-Änderungen am Standard erfolgen in `skills/`. Danach `tools/pack.sh` ausführen, die Dateien in `dist/` prüfen und neu hochladen. Die Vorlagen in `projekt-vorlage/` sind Kopien aus `skills/projekt-starten/assets/` und müssen bei Änderungen dort nachgezogen werden. Hook-Syntax und Einstellungen ändern sich mit Tool-Updates und werden bei jedem Update geprüft.
+Änderungen am Standard erfolgen in `skills/`. Danach `tools/pack.sh` ausführen, die Dateien in `dist/` prüfen und neu hochladen. Die Vorlagen in `projekt-vorlage/` sind Kopien aus `skills/projekt-starten/assets/` und müssen bei Änderungen dort nachgezogen werden. Die Konventionen für Specs stehen kurz in der Regel `specs.md` und ausführlich im Skill `spec-schreiben`. Bei Änderungen beide angleichen. Hook-Syntax und Einstellungen ändern sich mit Tool-Updates und werden bei jedem Update geprüft.
 
 ## Quellen
 
 - AI Engineering Blueprint von Alex Sprogis (AEB-2026), Grundlage des Ablaufs. Der Text im Repository ist eine eigene Fassung und enthält nicht das Original.
 - Offizielle Claude-Code-Dokumentation zu Best Practices (Hooks, Berechtigungen, Sandbox, Sub-Agenten)
 - OWASP «Secure Coding with AI Cheat Sheet» (Lieferkette, fremde Inhalte, Regeldateien, Tests, Verantwortung)
+- Gloaguen, Mündler-Sasahara, Müller, Raychev, Vechev, «Evaluating AGENTS.md. Are Repository-Level Context Files Helpful for Coding Agents?», ETH Zürich und LogicStar.ai, arXiv 2602.11988 (Inhalt der CLAUDE.md, keine automatisch erzeugten Kontextdateien, Wert genauer Aufgabenbeschreibungen). Zusammenfassung in `skills/ai-engineering-standard/references/kontext.md`.
+- Offizielle Claude-Code-Dokumentation zu CLAUDE.md, Regeln und AGENTS.md (Ebenen des Kontexts, Regeln mit Pfad)

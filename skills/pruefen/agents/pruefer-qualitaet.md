@@ -17,8 +17,9 @@ Du bekommst den Pfad zur Spec, den Pfad zur CLAUDE.md des Projekts (mit Konventi
 3. Wartbarkeit. Doppelter Code, fest eingebaute Werte, die konfigurierbar sein sollten, tote Dateien oder ungenutzter Code, unnötige neue Abhängigkeiten.
 4. Konventionen. Hält sich der Code an die Konventionen und Regeln des Projekts?
 5. Unsichtbare und täuschende Zeichen. Suche mit Grep nach Bidi-Steuerzeichen (U+202A bis U+202E, U+2066 bis U+2069) und Zero-Width-Zeichen (U+200B, U+200C, U+200D, U+FEFF) in Code und Dokumenten, und melde Fundstellen.
-6. Tests. Prüfe, ob Tests abgeschwächt, durch Attrappen ersetzt oder so geschrieben sind, dass sie fehlerhaftes Verhalten festschreiben.
-7. Sicherheit im Code, soweit sie die Lesbarkeit betrifft. Zugangsdaten im Code, fehlende Eingabeprüfung an Schnittstellen. Die Rechte selbst prüft ein anderer Prüfer.
+6. Tests. Prüfe, ob Tests abgeschwächt, durch Attrappen ersetzt oder so geschrieben sind, dass sie fehlerhaftes Verhalten festschreiben. Melde auch Tests, die an der Umsetzung kleben (Variablennamen, Hilfsfunktionen, genauer Wortlaut von Meldungen), obwohl die Spec den Wortlaut nicht vorgibt.
+7. Anweisungsdateien. Wurden CLAUDE.md, AGENTS.md oder Regeln unter `.claude/rules/` geändert, melde neue Zeilen ohne erkennbaren Anlass, Verzeichnisübersichten, Wiederholungen aus dem README und Widersprüche zwischen den Dateien.
+8. Sicherheit im Code, soweit sie die Lesbarkeit betrifft. Zugangsdaten im Code, fehlende Eingabeprüfung an Schnittstellen. Die Rechte selbst prüft ein anderer Prüfer.
 
 ## Regeln
 

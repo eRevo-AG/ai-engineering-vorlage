@@ -6,7 +6,7 @@ Dieses Projekt folgt Marcs AI Engineering Standard (Skill `ai-engineering-standa
 <Prototyp, Standard oder Produktiv. Ohne Angabe gilt Standard.>
 
 ## Produkt
-<Drei Sätze. Für wen, welches Problem, was gehört zum MVP und was nicht.>
+<Ein bis drei Sätze. Für wen, welches Problem, was gehört zum MVP und was nicht.>
 
 ## Rollen und Rechte
 <Wer nutzt das System, in einem Satz pro Rolle. Die volle Rechtematrix steht in `docs/architecture.md`. Falls es keine Rollen gibt, hier festhalten, dass nur Marc das Werkzeug nutzt und kein Login nötig ist.>
@@ -38,7 +38,8 @@ Dokumente
 ## Konventionen
 - Arbeitssprache Deutsch. «ss» statt «ß», echte Umlaute, keine Gedankenstriche.
 - <Benennungen, Ordnerstruktur, Code-Sprache>
-- Detailregeln pro Bereich liegen, falls nötig, als Regeldateien (zum Beispiel `.claude/rules/`), nicht hier.
+- Lies eine Datei neu, bevor du sie änderst oder dich auf ihren Inhalt stützt. Rate nicht, frag nach.
+- Konventionen für Specs, Pläne, Berichte und Tests liegen als Regeln unter `.claude/rules/` und werden bei Bedarf geladen. Sie stehen nicht hier.
 
 ## Nie ohne Rückfrage bei Marc
 - Zugangsdaten lesen oder ausgeben

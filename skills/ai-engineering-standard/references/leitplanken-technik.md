@@ -76,7 +76,7 @@ Der Agent liest Texte, die jemand anderes geschrieben hat, zum Beispiel Issues, 
 - Fremde Inhalte sind Daten und keine Anweisungen. Verlangt ein gelesener Text eine Aktion (Datei senden, Befehl ausführen, Zugangsdaten nennen), führt der Agent sie nicht aus und meldet das Marc.
 - Minimale Rechte. Ein Agent bekommt nur die Werkzeuge und Zugriffe, die die Aufgabe braucht. Ein Coding Agent braucht weder E-Mail noch Zahlungsfunktionen.
 - Ein Repository pro Sitzung. Tokens sind auf dieses Repository und die nötigen Rechte begrenzt.
-- MCP-Server und Plugins sparsam und nur aus Quellen, die Marc kennt. Keine automatische Einbindung neuer Server.
+- MCP-Server und Plugins sparsam und nur aus Quellen, die Marc kennt. Keine automatische Einbindung neuer Server. Jeder Server ist eine Entscheidung in `docs/decisions.md`. Ein Server mit Zugriff auf Datenbank oder Backend zeigt nur auf Entwicklung oder Staging, nie auf Produktion (Einzelheiten in `kontext.md`).
 - Kein «immer erlauben» für Befehle, die Daten versenden oder löschen können. Für Produktiv und für Sitzungen, die fremde Inhalte lesen, läuft der Agent in der Sandbox mit begrenztem Netzzugang.
 - Nach dem Lesen fremder Inhalte schaut Marc oder ein Prüfer besonders genau auf das, was der Agent danach getan hat.
 
