@@ -18,4 +18,4 @@ Durchlauf <1>, geprüft gegen `<Spec>`, Prüfer <Anforderungen, Rechte>. Ergebni
 
 **Auffälligkeiten.** <Gelöschte oder abgeschwächte Tests, Dateien ohne Bezug zur Spec, Lücken in der Spec.>
 
-**Für Marc.** <Zwei bis drei Sätze, was der Freigabe im Weg steht.>
+**Für die Projektleitung.** <Zwei bis drei Sätze, was der Freigabe im Weg steht.>

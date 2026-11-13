@@ -4,4 +4,4 @@ Was nicht aus dem Code ersichtlich ist und nicht wieder aufgerollt werden soll: 
 
 | Nr | Entscheidung | Grund | Verworfen | Quelle | Status |
 |---|---|---|---|---|---|
-| E01 | | | | Marc, Agent oder Code | vorgeschlagen, gilt oder ersetzt |
+| E01 | | | | Projektleitung, Agent oder Code | vorgeschlagen, gilt oder ersetzt |

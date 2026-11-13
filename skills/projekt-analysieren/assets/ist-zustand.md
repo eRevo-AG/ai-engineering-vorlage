@@ -18,7 +18,7 @@ Aus dem Code abgeleitet, mit Fundstellen. Nichts hier ist Soll. Ziel der Analyse
 |---|---|---|---|
 | | | Datenebene, Server oder nur Oberfläche | |
 
-Abweichung zu Marcs Annahme: <…>
+Abweichung zur Annahme der Projektleitung: <…>
 
 ## Funde
 | Fund | Art | Schweregrad | Fundstelle |
@@ -33,5 +33,5 @@ Abweichung zu Marcs Annahme: <…>
 |---|---|---|
 | | | |
 
-## Offene Fragen an Marc
+## Offene Fragen an die Projektleitung
 <…>

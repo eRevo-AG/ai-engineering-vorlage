@@ -2,7 +2,9 @@
 
 <Ein bis drei Sätze. Für wen, welches Problem, was gehört zum MVP und was nicht.>
 
-Stufe <Standard>. Es gilt Marcs Skill `ai-engineering-standard`.
+Stufe <Standard>. Es gilt der Skill `ai-engineering-standard`.
+
+Projektleitung: <Name der Person, die freigibt und entscheidet>
 
 ## Stack und Befehle
 - Stack: <…>
@@ -24,5 +26,5 @@ Stufe <Standard>. Es gilt Marcs Skill `ai-engineering-standard`.
 - Neue Abhängigkeiten installieren
 - <stackspezifische destruktive Befehle>
 
-## Nur Marc kann
+## Nur die Projektleitung kann
 <Schlüssel, Dashboards, Domains.>
