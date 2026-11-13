@@ -1,6 +1,8 @@
 # AI Engineering Vorlage
 
-Marcs Standard für Coding-Projekte mit Coding Agents, in der schlanken Fassung. Drei Dinge zählen: Der Projektzustand steht in Dokumenten, «fertig» heisst nachweislich geprüft, und Marc wird selten gefragt und knapp informiert.
+Standard für Coding-Projekte mit Coding Agents, in der schlanken Fassung. Drei Dinge zählen: Der Projektzustand steht in Dokumenten, «fertig» heisst nachweislich geprüft, und die Projektleitung wird selten gefragt und knapp informiert.
+
+Die Skills sind nicht an eine Person gebunden. Wer freigibt und entscheidet, heisst «Projektleitung» und steht pro Projekt in der CLAUDE.md in der Zeile `Projektleitung: <Name>`. Fehlt der Eintrag, gilt die Person, mit der der Agent gerade arbeitet.
 
 Die ausführliche erste Fassung (rund 1'300 Zeilen) bleibt im Zweig `archiv/voll-v1` abrufbar.
 
@@ -27,10 +29,10 @@ Die ausführliche erste Fassung (rund 1'300 Zeilen) bleibt im Zweig `archiv/voll
 ## Ablauf pro Feature
 
 1. Spec, bei Bedarf mit Umsetzungsskizze
-2. Freigabe 1 durch Marc
+2. Freigabe 1 durch die Projektleitung
 3. Bauen, Test zuerst, ohne Rückfragen ausser im Notfall
 4. Unabhängige Prüfung
-5. Freigabe 2 durch Marc anhand des Prüfberichts
+5. Freigabe 2 durch die Projektleitung anhand des Prüfberichts
 
 ## Einspielen
 

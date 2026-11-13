@@ -17,7 +17,7 @@ Regelt das Projekt diese Punkte selbst (AGENTS.md, eigener Skill, CI), gelten de
 
 ## Livegang (Stufe Produktiv)
 
-Offene Punkte als Liste an Marc.
+Offene Punkte als Liste an die Projektleitung.
 
 - Prüfberichte der enthaltenen Features freigegeben
 - Production-Build läuft, alle Tests grün mit Anzahl
@@ -30,4 +30,4 @@ Offene Punkte als Liste an Marc.
 - Abhängigkeiten gescannt, Lizenzen geklärt
 - Kostenlimits und Budgetalarme gesetzt
 - Rückweg (Rollback) beschrieben
-- Was nur Marc erledigen kann (Domains, DNS, Schlüssel), ist erledigt
+- Was nur die Projektleitung erledigen kann (Domains, DNS, Schlüssel), ist erledigt

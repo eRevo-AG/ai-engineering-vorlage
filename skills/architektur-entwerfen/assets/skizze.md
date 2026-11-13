@@ -12,7 +12,7 @@
 
 **Externe Dienste und Kosten.** <Sonst «keine».>
 
-**Nur Marc.** <Schlüssel, Dashboards, Domains. Sonst «nichts».>
+**Nur die Projektleitung.** <Schlüssel, Dashboards, Domains. Sonst «nichts».>
 
 **Abdeckung**
 

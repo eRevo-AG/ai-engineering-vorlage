@@ -1,6 +1,6 @@
 ---
 name: architektur-entwerfen
-description: Schreibt die kurze Umsetzungsskizze zu einer Spec (Daten mit Zugriffsregeln, Rechte, Abhängigkeiten, Kosten) und weist nach, dass jedes Kriterium abgedeckt ist. Verwende ihn nur, wenn ein Feature Daten, Rollen, Abhängigkeiten oder externe Dienste neu einführt oder ändert, oder wenn Marc «Architektur», «Datenmodell» oder «wie bauen wir das» sagt.
+description: Schreibt die kurze Umsetzungsskizze zu einer Spec (Daten mit Zugriffsregeln, Rechte, Abhängigkeiten, Kosten) und weist nach, dass jedes Kriterium abgedeckt ist. Verwende ihn nur, wenn ein Feature Daten, Rollen, Abhängigkeiten oder externe Dienste neu einführt oder ändert, oder wenn jemand «Architektur», «Datenmodell» oder «wie bauen wir das» sagt.
 ---
 
 # Umsetzungsskizze
@@ -11,7 +11,7 @@ Legt das Wie fest, bevor Code entsteht, damit der Agent nichts neu erfindet, was
 
 1. Lies den Ist-Zustand, soweit er das Feature betrifft: Architektur und Entscheidungen des Projekts (auch ADRs), das betroffene Datenmodell im Code, die Spec. Lies gezielt, nicht alles.
 2. Entscheide Technisches selbst und halte dich an den vorhandenen Stack (Stufe B). Jede Entscheidung bekommt eine Zeile am Ort, den das Projekt dafür hat (`docs/decisions.md` oder ADR).
-3. Sammle, was bei Marc liegt (Stufe C): neue Abhängigkeit, Kosten, neue Rolle oder Datenart, Änderung an bestehenden Daten, Widerspruch zur Spec. Diese Punkte gehen als Auswahlfragen in die Freigabe der Spec, nicht als eigene Runde.
+3. Sammle, was bei der Projektleitung liegt (Stufe C): neue Abhängigkeit, Kosten, neue Rolle oder Datenart, Änderung an bestehenden Daten, Widerspruch zur Spec. Diese Punkte gehen als Auswahlfragen in die Freigabe der Spec, nicht als eigene Runde.
 4. Schreibe die Skizze nach `assets/skizze.md`, höchstens eine Seite, an den Ort der Architektur des Projekts.
 
 ## Inhalt
@@ -20,7 +20,7 @@ Legt das Wie fest, bevor Code entsteht, damit der Agent nichts neu erfindet, was
 - Rechte. Welche Rolle darf was, und wo wird es auf der Datenebene durchgesetzt. Die Oberfläche blendet nur aus.
 - Abhängigkeiten. Nur wenn nötig, bevorzugt aus dem vorhandenen Stack. Vor dem Vorschlag in der Registry prüfen: Existenz, Betreuer, Alter, Lizenz, Ähnlichkeit zu bekannten Namen.
 - Externe Dienste mit erwarteten Kosten und nötigen Limits.
-- Was nur Marc erledigen kann (Schlüssel, Dashboards, Domains).
+- Was nur die Projektleitung erledigen kann (Schlüssel, Dashboards, Domains).
 - Abdeckung. Pro Spec-ID ein Stichwort, wodurch sie erfüllt wird. Unabgedecktes wird benannt.
 
 ## Wenn die Spec nicht passt
@@ -30,4 +30,4 @@ Legt das Wie fest, bevor Code entsteht, damit der Agent nichts neu erfindet, was
 
 ## Abschluss
 
-Die Skizze geht mit der Spec in dieselbe Freigabe. Nenne Marc nur die Entscheidungen, die er treffen muss, die Kosten und was er selbst erledigen muss. Technische Einzelheiten stehen in der Datei.
+Die Skizze geht mit der Spec in dieselbe Freigabe. Nenne der Projektleitung nur die Entscheidungen, die sie treffen muss, die Kosten und was sie selbst erledigen muss. Technische Einzelheiten stehen in der Datei.

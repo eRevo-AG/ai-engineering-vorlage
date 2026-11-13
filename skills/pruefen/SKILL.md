@@ -1,6 +1,6 @@
 ---
 name: pruefen
-description: Lässt ein gebautes Feature von Sub-Agenten prüfen, die den Build nicht gesehen haben, und fasst das Ergebnis in einem kurzen Prüfbericht für Marcs Freigabe zusammen. Verwende ihn, wenn ein Feature gebaut ist, wenn Marc «prüfen», «review», «QA», «abnehmen» oder «ist das fertig» sagt, und bevor etwas als fertig gilt.
+description: Lässt ein gebautes Feature von Sub-Agenten prüfen, die den Build nicht gesehen haben, und fasst das Ergebnis in einem kurzen Prüfbericht für die Freigabe zusammen. Verwende ihn, wenn ein Feature gebaut ist, wenn jemand «prüfen», «review», «QA», «abnehmen» oder «ist das fertig» sagt, und bevor etwas als fertig gilt.
 ---
 
 # Unabhängig prüfen
@@ -13,9 +13,9 @@ Wer gebaut hat, prüft mit denselben Annahmen, die den Fehler verursacht haben. 
 |---|---|
 | `agents/pruefer-anforderungen.md` | Immer |
 | `agents/pruefer-rechte.md` | Wenn das Feature Rollen, Anmeldung oder Daten von Personen berührt |
-| `agents/pruefer-skeptiker.md` | Stufe Produktiv, oder wenn Marc es verlangt |
+| `agents/pruefer-skeptiker.md` | Stufe Produktiv, oder wenn die Projektleitung es verlangt |
 
-Im Prototyp wird nur auf Marcs Wunsch geprüft. Mehr Prüfer kosten mehr. Starte nur, was die Tabelle verlangt.
+Im Prototyp wird nur auf Wunsch der Projektleitung geprüft. Mehr Prüfer kosten mehr. Starte nur, was die Tabelle verlangt.
 
 ## Vorgehen
 
@@ -28,4 +28,4 @@ Im Prototyp wird nur auf Marcs Wunsch geprüft. Mehr Prüfer kosten mehr. Starte
 
 ## Freigabe
 
-Melde Marc in höchstens acht Zeilen: wie viele Kriterien bestanden sind, was nicht, was nicht geprüft werden konnte, und die Frage «freigeben, ändern oder ablehnen». Der Rest steht im Bericht.
+Melde der Projektleitung in höchstens acht Zeilen: wie viele Kriterien bestanden sind, was nicht, was nicht geprüft werden konnte, und die Frage «freigeben, ändern oder ablehnen». Der Rest steht im Bericht.

@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if jq -r '.tool_input.file_path // empty' | grep -qE '(^|/)migrations/'; then echo 'Migrationen werden nur nach Freigabe von Marc geändert.' 1>&2; exit 2; fi"
+            "command": "if jq -r '.tool_input.file_path // empty' | grep -qE '(^|/)migrations/'; then echo 'Migrationen werden nur nach Freigabe der Projektleitung geändert.' 1>&2; exit 2; fi"
           }
         ]
       }
