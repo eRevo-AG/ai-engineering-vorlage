@@ -1,4 +1,6 @@
-# Prüfbericht <Feature> (`<ABK-01>`)
+# Prüfbericht <Zug von Features>
+
+Ein Abschnitt je Feature (`<ABK-01>`).
 
 Durchlauf <1>, geprüft gegen `<Spec>`, Prüfer <Anforderungen, Rechte>. Ergebnisse unverändert von den Prüfern.
 
