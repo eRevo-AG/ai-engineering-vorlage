@@ -1,11 +1,11 @@
 ---
 name: architektur-entwerfen
-description: Schreibt die kurze Umsetzungsskizze zu einer Spec (Daten mit Zugriffsregeln, Rechte, Abhängigkeiten, Kosten) und weist nach, dass jedes Kriterium abgedeckt ist. Verwende ihn nur, wenn ein Feature Daten, Rollen, Abhängigkeiten oder externe Dienste neu einführt oder ändert, oder wenn jemand «Architektur», «Datenmodell» oder «wie bauen wir das» sagt.
+description: Schreibt die kurze Umsetzungsskizze zu einer Spec (Daten mit Zugriffsregeln, Rechte, Abhängigkeiten, Kosten) und weist nach, dass jedes Kriterium abgedeckt ist. Verwende ihn nur im seltenen Fall, dass der Abschnitt «Daten und Rechte» der Spec für einen Entwurf nicht reicht (mehr als eine Seite), oder wenn jemand «Architektur» oder «Systemdesign» ausdrücklich verlangt.
 ---
 
 # Umsetzungsskizze
 
-Legt das Wie fest, bevor Code entsteht, damit der Agent nichts neu erfindet, was es schon gibt. Für Features ohne neue Daten, Rollen, Abhängigkeiten oder Dienste entfällt dieser Schritt.
+Legt das Wie fest, bevor Code entsteht, damit der Agent nichts neu erfindet, was es schon gibt. Normalerweise reicht der Abschnitt «Daten und Rechte» in der Spec (`spec-schreiben`). Dieser Skill ist die Ausnahme für grössere Entwürfe.
 
 ## Vorgehen
 

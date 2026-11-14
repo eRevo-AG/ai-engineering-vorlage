@@ -22,17 +22,17 @@ Die ausführliche erste Fassung (rund 1'300 Zeilen) bleibt im Zweig `archiv/voll
 | `ai-engineering-standard` | Ablauf, wann der Agent selbst entscheidet und wann er fragt, Kosten und Kürze, harte Regeln |
 | `projekt-starten` | Neues Projekt mit einer Fragerunde aufsetzen |
 | `projekt-analysieren` | Ist-Zustand eines bestehenden Projekts erfassen |
-| `spec-schreiben` | Spec mit prüfbaren Kriterien, höchstens eine Fragerunde |
-| `architektur-entwerfen` | Kurze Umsetzungsskizze, nur wenn Daten, Rollen, Abhängigkeiten oder Dienste betroffen sind |
-| `pruefen` | Unabhängige Prüfung durch ein bis drei Sub-Agenten, kurzer Prüfbericht |
+| `spec-schreiben` | Spec für den langen Weg mit prüfbaren Kriterien sowie Daten und Rechten, höchstens eine Fragerunde |
+| `architektur-entwerfen` | Umsetzungsskizze, nur im seltenen Fall, dass der Abschnitt «Daten und Rechte» der Spec nicht reicht |
+| `pruefen` | Unabhängige Prüfung durch ein bis drei Sub-Agenten, gebündelt am Ende eines Zugs von Features, kurzer Prüfbericht |
 
 ## Ablauf pro Feature
 
-1. Spec, bei Bedarf mit Umsetzungsskizze
-2. Freigabe 1 durch die Projektleitung
-3. Bauen, Test zuerst, ohne Rückfragen ausser im Notfall
-4. Unabhängige Prüfung
-5. Freigabe 2 durch die Projektleitung anhand des Prüfberichts
+Zwei Wege, gewählt nach der Frage «Ist diese Entscheidung teuer umzudrehen?».
+
+- **Langer Weg** für Datenmodell, Speicherformat, Protokolle, Rechte und Schreibzugriff auf fremde Systeme: Spec mit Abschnitt «Daten und Rechte», Freigabe durch die Projektleitung, Bauen mit Test zuerst
+- **Leichter Weg** für alles andere: Ziel und drei bis fünf Kriterien im Chat bestätigen, Bauen, jede technische Entscheidung in einer Zeile festhalten
+- **Beide Wege:** Am Ende eines Zugs von Features prüfen Sub-Agenten gebündelt, danach entscheidet die Projektleitung anhand des Prüfberichts
 
 ## Einspielen
 

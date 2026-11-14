@@ -15,22 +15,33 @@ Hat ein Projekt schon eigene Dokumente für Status, Entscheidungen oder Features
 
 | Stufe | Wofür | Umfang |
 |---|---|---|
-| Prototyp | Experiment, Wegwerf | Ziel und drei bis fünf Kriterien im Chat bestätigen, Tests für die Kernlogik, keine Prüfer. Schutzregeln gelten. |
-| Standard | Alles, was weiterlebt | Ablauf unten, ein bis zwei Prüfer |
+| Prototyp | Experiment, Wegwerf | Kein Prüfer. Schutzregeln gelten. |
+| Standard | Alles, was weiterlebt | Ein bis zwei Prüfer, gebündelt am Ende eines Zugs von Features |
 | Produktiv | Echte Nutzer und Daten | Standard plus Skeptiker, CI mit Scans, Livegang-Check (`references/betrieb.md`) |
 
-Die Stufe steht in der CLAUDE.md des Projekts. Ohne Angabe gilt Standard. Ein Prototyp, der weiterleben soll, bekommt Spec und Rechte nachgeholt, bevor weitergebaut wird.
+Die Stufe steht in der CLAUDE.md des Projekts und wird beim Aufsetzen abgefragt. Ohne Angabe gilt Standard. Sie entscheidet nur, ob Prüfer laufen und wie genau, nicht wie ausführlich gebaut wird. Ein Prototyp, der weiterleben soll, bekommt Spec und Rechte nachgeholt, bevor weitergebaut wird.
 
 ## Ablauf pro Feature
 
-1. **Spec** mit `spec-schreiben`. Was «fertig» heisst, als prüfbare Kriterien mit IDs.
-2. **Umsetzungsskizze** mit `architektur-entwerfen`, nur wenn das Feature Daten, Rollen, Abhängigkeiten oder externe Dienste neu einführt oder ändert. Sonst entfällt sie.
-3. **Freigabe 1** durch die Projektleitung, für Spec und Skizze zusammen. Davor entsteht kein Code.
-4. **Bauen.** Test zuerst, Kriterium für Kriterium. Ein Plan (`assets/plan.md`) nur, wenn die Arbeit mehr als eine Sitzung oder mehr als etwa fünf Aufgaben braucht.
-5. **Prüfen** mit `pruefen`, durch Sub-Agenten, die den Build nicht gesehen haben.
-6. **Freigabe 2** durch die Projektleitung anhand des Prüfberichts.
+Zwei Regler, nicht einer. Die Stufe gilt für das Projekt. Den Weg je Feature entscheidet der Agent selbst, ohne Rückfrage, nach einer einzigen Frage: **Ist diese Entscheidung teuer umzudrehen?** Der Unterschied liegt nicht zwischen grossen und kleinen Projekten, sondern zwischen Features im selben Projekt. Teuer wird ein Feature, das eine schwer rückholbare Entscheidung ohne Spec trifft.
 
-Tippfehler, Texte und Einzeiler ohne Änderung an Verhalten, Daten oder Rechten brauchen den Ablauf nicht.
+**Langer Weg.** Für Datenmodell, Speicherformat, Protokolle, Rechte und alles, was in fremde Systeme oder Postfächer schreibt.
+
+1. **Spec** mit `spec-schreiben`. Prüfbare Kriterien mit stabilen IDs, dazu ein Abschnitt «Daten und Rechte»: neue oder geänderte Tabellen und Felder in fachlichen Namen mit Zugriffsregel, wer was sehen und ändern darf und wo das auf der Datenebene durchgesetzt wird, neue Abhängigkeiten, externe Dienste mit Kosten, und was nur die Projektleitung erledigen kann.
+2. **Freigabe** durch die Projektleitung. Davor entsteht kein Code.
+3. **Bauen.** Test zuerst, Kriterium für Kriterium. Ein Plan (`assets/plan.md`) nur, wenn die Arbeit mehr als eine Sitzung oder mehr als etwa fünf Aufgaben braucht.
+
+**Leichter Weg.** Für alles andere, und das ist der Normalfall: Oberfläche, Tasten, Texte, Umbauten ohne neue Daten.
+
+1. Ziel und drei bis fünf Kriterien im Chat bestätigen lassen. Halte die bestätigten Kriterien in einer Zeile an dem Ort fest, an dem das Projekt seine Features führt (oder in der Beschreibung des Pull Requests), damit die Prüfer sie lesen können.
+2. Bauen, Tests für die Kernlogik.
+3. Jede technische Entscheidung bekommt eine Zeile am Ort der Entscheidungen.
+
+**Beide Wege.** Am Ende eines Zugs von Features prüfen Sub-Agenten mit frischem Kontext, was gebaut wurde (`pruefen`), gebündelt und nicht je Feature. Ein Zug ist eine zusammenhängende Arbeitsphase mit mehreren Features, etwa bis zum nächsten Pull Request oder Release. Danach entscheidet die Projektleitung anhand des Prüfberichts.
+
+Beim Aufsetzen eines Projekts nennt der Agent die Features, die absehbar den langen Weg brauchen, und schreibt sie in die CLAUDE.md. Eine eigene Umsetzungsskizze entfällt. `architektur-entwerfen` bleibt für den seltenen Fall, dass ein Entwurf mehr als eine Seite braucht.
+
+Tippfehler, Texte und Einzeiler ohne Änderung an Verhalten, Daten oder Rechten brauchen keinen der beiden Wege.
 
 ## Selbst entscheiden oder fragen
 
@@ -43,7 +54,7 @@ Eine Rückfrage kostet die Aufmerksamkeit der Projektleitung und ist meist teure
 | C | Fachliches Verhalten, Rechte und Rollen, neue Abhängigkeit, Kosten, Änderungen an bestehenden Daten, Widerspruch in der Spec | Sammeln und in einer einzigen Sammelfrage stellen |
 | D | Secret gefunden, drohender Datenverlust, Unumkehrbares, Sicherheitslücke | Sofort stoppen und melden |
 
-- Gefragt wird nur an zwei Stellen: vor dem Bauen (zusammen mit Freigabe 1) und nach dem Prüfen (mit Freigabe 2).
+- Gefragt wird nur an zwei Stellen: vor dem Bauen (langer Weg: Freigabe der Spec, leichter Weg: Bestätigung der Kriterien im Chat, ein Satz ohne Auswahlrunde) und nach dem Prüfen (Entscheid anhand des Prüfberichts).
 - Während des Bauens gibt es keine Rückfragen, ausser bei Stufe D. Taucht ein Punkt der Stufe C auf, baut der Agent mit der empfohlenen Annahme weiter, sofern sie rückholbar ist, und stellt sonst nur diesen Teil zurück. Beides steht im Abschlussbericht.
 - Eine Sammelfrage hat höchstens vier Fragen als Auswahl (AskUserQuestion). Die erste Option ist die Empfehlung, jede Option sagt in einem Satz, was daraus folgt. Gibt es mehr Punkte, entscheidet der Agent die unwichtigsten selbst (Stufe B).
 - Nicht fragen, was sich nachlesen oder mit einem vernünftigen Standard lösen lässt.

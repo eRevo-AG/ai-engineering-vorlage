@@ -17,6 +17,16 @@
 |---|---|---|
 | ABK-01-RF01 | | |
 
+## Daten und Rechte (nur langer Weg)
+
+**Daten.** <Neue oder geänderte Tabellen und Felder in fachlichen Namen mit Zugriffsregel.>
+
+**Rechte.** <Wer darf was sehen und ändern, wo auf der Datenebene durchgesetzt.>
+
+**Abhängigkeiten und Dienste.** <Neue Abhängigkeiten (geprüft), externe Dienste mit Kosten. Sonst «keine».>
+
+**Nur die Projektleitung.** <Schlüssel, Dashboards, Domains. Sonst «nichts».>
+
 **Nicht dabei.** <Was ausdrücklich nicht dazugehört.>
 
 **Annahmen und offene Fragen.** <Annahmen mit «(Annahme)», offene Fragen sichtbar.>

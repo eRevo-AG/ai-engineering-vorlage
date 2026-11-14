@@ -6,6 +6,8 @@ Stufe <Standard>. Es gilt der Skill `ai-engineering-standard`.
 
 Projektleitung: <Name der Person, die freigibt und entscheidet>
 
+Langer Weg bei: <Features mit schwer rückholbaren Entscheidungen, zum Beispiel Datenmodell, Speicherformat, Protokolle, Rechte, Schreibzugriff auf fremde Systeme. Alles andere läuft über den leichten Weg.>
+
 ## Stack und Befehle
 - Stack: <…>
 - Starten: `<…>`

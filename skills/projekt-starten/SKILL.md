@@ -23,6 +23,7 @@ Alles Weitere nimmst du an und kennzeichnest es mit «(Vorschlag)»: Rollennamen
 Ist der Ordner kein Git-Repository, führe `git init -b main` aus. Offenes bleibt als `<…>` stehen.
 
 - `CLAUDE.md` nach `assets/projekt-CLAUDE.md`. Trage in der Zeile `Projektleitung` die Person ein, mit der du arbeitest, falls ihr Name bekannt ist. Sonst entfällt die Zeile, und es gilt, wer mit dem Agenten arbeitet. Nur was bei jeder Aufgabe gilt: Produkt, Stufe, Stack, Befehle, Konventionen, Verbote. Kein Verzeichnisbaum, nichts aus dem README, nicht mit `/init` erzeugen. Bei mehreren Coding Agents steht der Inhalt in `AGENTS.md`, und die CLAUDE.md enthält nur `@AGENTS.md`.
+- In der CLAUDE.md die Zeile `Langer Weg bei:` mit den absehbaren Features, die schwer rückholbare Entscheidungen treffen (Datenmodell, Speicherformat, Protokolle, Rechte, Schreibzugriff auf fremde Systeme). Alles andere läuft über den leichten Weg.
 - `docs/features.md`, `docs/architecture.md` (mit Rechtematrix als Vorschlag) und `docs/decisions.md` (Stack als erster Eintrag) nach den Vorlagen in `assets/`
 - `docs/specs/` und `docs/reports/` als leere Ordner
 - `.claude/settings.json` nach `assets/settings.basis.json`. Sie enthält nur Schutzregeln und gilt sofort. Ergänze Allow-Einträge nur für bekannte, harmlose Befehle (Test, Typecheck, Lint).
